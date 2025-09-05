@@ -152,9 +152,14 @@ import CourseRecommendation from './pages/CourseRecommendation';
 import HomeBeforeLogin from './pages/HomeBeforeLogin';
 
 const App = () => {
-  const [user, setUser] = useState(() => {
+const [user, setUser] = useState(() => {
+  try {
     const storedUser = localStorage.getItem('user');
     return storedUser ? JSON.parse(storedUser) : null;
+  } catch {
+    return null;
+  }
+
   });
 
   useEffect(() => {

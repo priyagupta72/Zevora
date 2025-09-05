@@ -93,6 +93,8 @@
 
 
 
+
+
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import logo from '../assets/logo.png';
@@ -104,33 +106,39 @@ const Navbar = ({ user, setUser }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Sticky navbar on scroll
   useEffect(() => {
     const handleScroll = () => setSticky(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
   const scrollToSection = (id) => {
     if (location.pathname !== '/home') {
-      navigate('/home');
+      navigate('/home', { replace: true });
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      }, 200); // increased delay for safety
     } else {
       const element = document.getElementById(id);
       if (element) element.scrollIntoView({ behavior: 'smooth' });
     }
-    setMenuOpen(false);
   };
 
   const handleLogout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    setUser(null); // ← this updates the Navbar immediately
+    setUser(null);
     navigate('/');
   };
 
+  // For styling only
   const isAuthPage = location.pathname === '/signin' || location.pathname === '/signup';
 
   return (
