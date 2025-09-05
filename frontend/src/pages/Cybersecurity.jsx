@@ -2,7 +2,7 @@
 import React from "react";
 import cyber_img from "../assets/Cybersecurity.jpg";
 import Contact from "../pages/Contact";
-import "./FullStack.css"; // Reuse FullStack CSS
+import "./fullStack.css"; // Reuse FullStack CSS
 import Title from "../pages/Title";
 import CourseRecommendation from "../pages/CourseRecommendation";
 

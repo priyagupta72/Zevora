@@ -1,7 +1,7 @@
 import React from "react";
 import fullstack_img from "../assets/fullstack.jpg";
 import Contact from "../pages/Contact";
-import "./FullStack.css";
+import "./fullStack.css";
 import Title from "../pages/Title";
 import CourseRecommendation from "../pages/CourseRecommendation";
 
