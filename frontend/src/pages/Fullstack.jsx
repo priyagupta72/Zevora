@@ -1,5 +1,5 @@
 import React from "react";
-import fullstack_img from "../assets/full Stack.jpg";
+import fullstack_img from "../assets/fullStack.jpg";
 import Contact from "../pages/Contact";
 import "./FullStack.css";
 import Title from "../pages/Title";

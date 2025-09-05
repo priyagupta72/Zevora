@@ -27,7 +27,7 @@ export default function CourseRecommendation() {
     setError("");
     setResponse(null);
     try {
-      const res = await fetch("http://localhost:5000/api/recommend", {
+      const res = await fetch("https://zevora.onrender.com/api/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ domain, skillLevel, goals, name }),
