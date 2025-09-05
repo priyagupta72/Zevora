@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { FaLock, FaBolt, FaUserCheck } from "react-icons/fa";
-import "./SignIn.css";
+import "./signIn.css";
 
 const SignIn = ({ setUser }) => { // receive setUser
   const [result, setResult] = useState("");
