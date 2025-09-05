@@ -1,7 +1,7 @@
 import React from "react";
 import cloud_img from "../assets/Cloud.jpg";
 import Contact from "../pages/Contact";
-import "./fullStack.css"; // Reuse FullStack CSS
+import "./fullstack.css"; // Reuse FullStack CSS
 import Title from "../pages/Title";
 import CourseRecommendation from "../pages/CourseRecommendation";
 
