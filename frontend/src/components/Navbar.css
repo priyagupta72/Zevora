@@ -1,0 +1,252 @@
+nav {
+  width: 100%;
+  color: #fff;
+  padding: 12px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  height: 70px;
+}
+
+ #about, #services, #blogs, #testimonial, #contact {
+  scroll-margin-top: 90px; /* same as navbar height */
+}
+
+/* Brand logo styling */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 50px;   /* Adjust as per your logo */
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Shrink logo slightly when navbar becomes sticky */
+.dark-nav .logo-img {
+  height: 40px;
+}
+
+/* Navigation links */
+nav ul {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 30px;
+  list-style: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: #ffffff;
+}
+
+nav ul li:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Contact button */
+.btn {
+  background: transparent;
+  border: 2px solid #fff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #6c63ff;
+  border-color: #6c63ff;
+  transform: scale(1.05);
+}
+
+/* Sticky navbar */
+.dark-nav {
+  background: #010420;
+  transition: 0.5s;
+}
+
+/* Hamburger toggle - hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Contact button (Navbar specific) */
+.nav-contact-btn {
+  background: #fff;
+  color: #010420;
+  border: 2px solid #fff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-contact-btn:hover {
+  background: transparent;
+  color: #010420;
+  border-color: #010420;
+  background: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  nav {
+    padding: 12px 20px;
+  }
+
+  nav ul li {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Show hamburger icon */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide nav links by default */
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    background: #010420;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 15px;
+    border-radius: 8px;
+    display: none;
+  }
+
+  /* Show nav links when menu is active */
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+
+
+/* Brand logo + text container */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* space between logo and text */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Shrink logo when sticky */
+.dark-nav .logo-img {
+  height: 40px;
+}
+
+/* Brand text next to logo */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+   margin-left: 1px; 
+}
+
+.brand-main {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.brand-sub {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0.85;
+}
+/* User icon in navbar */
+.user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;      /* White circular background */
+  color: #010420;           /* Blue text for the first letter */
+  font-weight: 700;
+  font-size: 16px;
+  width: 35px;              /* Diameter of the circle */
+  height: 35px;             /* Diameter of the circle */
+  border-radius: 50%;       /* Makes it circular */
+  text-transform: uppercase; /* Ensures letter is capitalized */
+  cursor: default;
+  margin-left: 15px;
+}
+/* Remove hover effect on user icon */
+nav ul li.user-icon {
+  color: #6c63ff;  /* Blue text */
+  background: #fff; /* White circle */
+}
+
+/* Keep generic hover effect for other nav items */
+nav ul li:not(.user-icon):hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+
+/* Existing nav styles remain */
+
+/* For SignIn / SignUp pages */
+.auth-nav {
+  background-color: #0a1f44 !important; /* dark blue */
+  color: white;
+}
+
+.auth-nav .brand-text,
+.auth-nav ul li,
+.auth-nav .nav-contact-btn {
+  color: white !important;
+}
+
+.auth-nav .menu-toggle {
+  color: white !important;
+}
+
+/* Optional: if logo has default colors, you can add a filter */
+.auth-nav .logo-img {
+  filter: brightness(0) invert(1);
+}

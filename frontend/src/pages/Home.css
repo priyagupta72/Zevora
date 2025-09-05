@@ -1,0 +1,304 @@
+
+.home {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   padding: 100px 20px 20px 20px;
+  z-index: 1;
+}
+
+/* Background gradient with floating circles */
+.home-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #2e569a, #1e3c72, #332e9f, #133b46);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.home-bg::before,
+.home-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(80px);
+  animation: floatCircle 15s ease-in-out infinite alternate;
+}
+
+.home-bg::before { width: 300px; height: 300px; top: 15%; left: 10%; }
+.home-bg::after { width: 300px; height: 300px; bottom: 20%; right: 15%; }
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatCircle {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-50px) translateX(30px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* Text and buttons */
+.home-text {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  text-align: left;
+  color: #fff;
+}
+
+.home-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.home-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  color: #dce6ff;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.explore-btn {
+  background: #fff;
+  color: #0a1f44;
+}
+.explore-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background: #ffffff;
+}
+
+.contact-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.contact-btn:hover {
+  background: #0a1f44;
+  transform: translateY(-3px) scale(1.05);
+  border-color: #0a1f44;
+}
+
+/* Image */
+.home-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+}
+
+.home-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* Floating shapes */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.shape1 {
+  width: 150px;
+  height: 150px;
+  background: #fff;
+  top: 20%;
+  left: 10%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape2 {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  bottom: 15%;
+  right: 10%;
+  animation: float 5s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) }
+  50% { transform: translateY(-20px) }
+  100% { transform: translateY(0px) }
+}
+
+/* Flex container */
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+/* =================== RESPONSIVE STYLES =================== */
+
+/* Large tablets */
+@media (max-width: 1024px) {
+  .home-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .home-text {
+    max-width: 100%;
+    text-align: center;
+  }
+  .home-image {
+    max-width: 80%;
+    margin-bottom: 30px;
+  }
+}
+
+/* Tablets & mobiles */
+@media (max-width: 768px) {
+  .home-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .home-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .home-text h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .home-text p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .home-buttons {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+
+  .home-image {
+    max-width: 90%;
+    display: block;
+  }
+
+  .home-image img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  /* Adjust floating shapes */
+  .shape1 {
+    width: 100px;
+    height: 100px;
+    top: 15%;
+    left: 5%;
+  }
+
+  .shape2 {
+    width: 70px;
+    height: 70px;
+    bottom: 10%;
+    right: 5%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .home-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .home-text p {
+    font-size: 0.95rem;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .home-image {
+    max-width: 100%;
+  }
+}
+
+
+/* Smooth fade-in animations */
+.fade-in-left {
+  animation: fadeInLeft 1.2s ease forwards;
+}
+.fade-in-right {
+  animation: fadeInRight 1.2s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

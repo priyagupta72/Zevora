@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "slick-carousel/slick/slick.css"; 
+@import "slick-carousel/slick/slick-theme.css";
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+body {
+    background: #f5f5f5;
+
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    line-height: 1;
+    cursor: pointer;
+}
+.container{
+    
+    padding-right: 10%;
+}
+.btn{
+    background: #fff;
+    color: 212121;
+    padding: 14px 25px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.btn img{
+    width: 20px;
+    margin-left: 10px;
+}
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.title-wrapper {
+  margin-top: 50px; /* space between navbar and title */
+}
+
+@media (max-width: 768px) {
+  .title-wrapper {
+    margin-top: 20px; /* smaller gap on mobile */
+  }
+}
+/* Add gap for scrolling to sections */
+ #services, #blogs, #testimonial, #contact {
+  scroll-margin-top: 80px; 
+}
+
+html {
+  scroll-behavior: smooth;
+} 
