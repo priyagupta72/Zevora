@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './services.css';
+import './Services.css';
 import Cybersecurity from '../assets/Cybersecurity.jpg';
 import Prompt from '../assets/Prompt.jpg';
 import Cloud from '../assets/Cloud.jpg';

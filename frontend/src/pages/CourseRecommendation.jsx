@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { XCircle, ChevronDown, ChevronUp } from "lucide-react";
-import "./courseRecommendation.css";
+import "./CourseRecommendation.css";
 
 const safeText = (val, fallback = "Not available") =>
   !val || val === "N/A" || (Array.isArray(val) && val.length === 0)

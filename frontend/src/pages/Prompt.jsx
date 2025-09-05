@@ -1,7 +1,7 @@
 import React from "react";
 import prompt_img from "../assets/Prompt.jpg";
 import Contact from "../pages/Contact";
-import "./fullStack.css"; // Reuse FullStack CSS
+import "./Fullstack.css"; // Reuse FullStack CSS
 import Title from "../pages/Title";
 import CourseRecommendation from "../pages/CourseRecommendation";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './home.css';
+import './Home.css';
 import heroImage from '../assets/hero.jpg';
 import dark_arrow from '../assets/dark-arrow.png';
 

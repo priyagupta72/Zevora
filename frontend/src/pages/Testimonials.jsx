@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import "./testimonial.css";
+import "./Testimonial.css";
 import user1 from "../assets/user1.png";
 import user2 from "../assets/user2.jpeg";
 import "slick-carousel/slick/slick.css"; 

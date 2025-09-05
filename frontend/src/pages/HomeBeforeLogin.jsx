@@ -22,12 +22,12 @@ import phone_icon from "../assets/phone-icon.png";
 import location_icon from "../assets/location-icon.png";
 
 // CSS
-import "./home.css";
-import "./services.css";
-import "./about.css";
-import "./blog.css";
-import "./testimonial.css";
-import "./contact.css";
+import "./Home.css";
+import "./Services.css";
+import "./About.css";
+import "./Blog.css";
+import "./Testimonial.css";
+import "./Contact.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Title from "../pages/Title";

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { FaLock, FaBookOpen, FaUserShield } from "react-icons/fa"; 
-import "./signUp.css";
+import "./SignUp.css";
 
 const SignUp = () => {
   const [result, setResult] = useState("");
