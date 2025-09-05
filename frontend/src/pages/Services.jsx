@@ -4,7 +4,7 @@ import './Services.css';
 import Cybersecurity from '../assets/Cybersecurity.jpg';
 import Prompt from '../assets/Prompt.jpg';
 import Cloud from '../assets/Cloud.jpg';
-import fullStack from '../assets/full Stack.jpg';
+import fullStack from '../assets/fullstack.jpg';
 import program_icon_1 from '../assets/program-icon-1.png';
 import program_icon_2 from '../assets/program-icon-2.png';
 import program_icon_3 from '../assets/program-icon-3.png';
