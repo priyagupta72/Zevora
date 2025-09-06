@@ -111,7 +111,7 @@ const Contact = () => {
     const formData = new FormData(event.target);
 
     // Required Web3Forms key
-    console.log("Access Key from env:", process.env.REACT_APP_WEB3FORMS_KEY);
+    formData.append("access_key", "dc8e1ade-d31a-410f-9d87-ee16c2ddb4db");
 
 
     // Extra fields to avoid spam filter
