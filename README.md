@@ -135,8 +135,3 @@ bash
 3.  *AI-Powered Recommendations:*  Complete a short questionnaire to receive personalized course recommendations.
 4.  *Enrollment:*  Click the "Enroll Now" button to register for a course. >(Describe the enrollment process)
 5.  *User Authentication:* > (If implemented) Create an account or log in to track your progress and access enrolled courses.
-
----
-
-##  platform support
-> (Mention supported platforms e.g. Windows, Mac, Linux, and browsers such as Chrome, Firefox, Safari, Edge)
