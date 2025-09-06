@@ -164,13 +164,15 @@
 }
 
 
+/* Existing styles remain the same */
+
 /* ===================== */
 /* Blog - Mobile         */
 /* ===================== */
 @media (max-width: 768px) {
   .blog-slider .slick-slide {
-    transform: none !important;   /* remove zoom effect */
-    padding: 0 5px !important;
+    transform: none !important;
+    padding: 0 !important;
   }
 
   .blog-card {
@@ -179,10 +181,9 @@
   }
 
   .blog-card-image {
-    height: 200px !important;     /* smaller image */
+    height: 220px !important; /* adjust as needed */
   }
 
-  /* Always show overlay text on mobile */
   .blog-card-overlay {
     opacity: 1 !important;
   }
@@ -193,6 +194,10 @@
 
   .blog-card-summary {
     font-size: 0.85rem !important;
-    -webkit-line-clamp: 3 !important; 
+    -webkit-line-clamp: 3 !important;
+  }
+
+  .blog-slider .slick-list {
+    padding: 0 !important;
   }
 }
