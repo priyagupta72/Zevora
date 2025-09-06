@@ -111,7 +111,8 @@ const Contact = () => {
     const formData = new FormData(event.target);
 
     // Required Web3Forms key
-    formData.append("access_key", process.env.REACT_APP_WEB3FORMS_KEY);
+    console.log("Access Key from env:", process.env.REACT_APP_WEB3FORMS_KEY);
+
 
     // Extra fields to avoid spam filter
     formData.append("subject", "New Registration from Zevora Website");

@@ -370,7 +370,8 @@ const Contact = () => {
     setResult("Submitting...");
 
     const formData = new FormData(event.target);
-    formData.append("access_key", process.env.REACT_APP_WEB3FORMS_KEY);
+    console.log("Access Key from env:", process.env.REACT_APP_WEB3FORMS_KEY);
+
 
     // ✅ Anti-spam & better email context
     formData.append("subject", "New Registration from Zevora Website");
