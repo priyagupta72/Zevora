@@ -49,47 +49,33 @@ const Blog = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
-    centerMode: true,
-    centerPadding: "60px",
+    centerMode: true,       
+    centerPadding: "60px",  
     cssEase: "ease-in-out",
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          centerMode: true,
-          centerPadding: "40px",
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          centerMode: false,
-          centerPadding: "0px",
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 2, centerPadding: "40px" } },
+      { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: "20px" } },
     ],
   };
 
   return (
-    <div className="blog-section">
-      <Slider {...settings} className="blog-slider">
-        {blogPosts.map((post) => (
-          <div key={post.id} className="blog-card">
-            <img src={post.image} alt={post.title} className="blog-card-image" />
-            <div className="blog-card-overlay">
-              <h3 className="blog-card-title">{post.title}</h3>
-              <p className="blog-card-summary">{post.summary}</p>
-              <p className="blog-card-meta">
-                {post.author} | {post.date}
-              </p>
-              <button className="blog-card-btn">Read More</button>
-            </div>
-          </div>
-        ))}
-      </Slider>
-    </div>
+   <div className="blog-section">
+  
+  <Slider {...settings} className="blog-slider">
+    {blogPosts.map((post) => (
+      <div key={post.id} className="blog-card">
+        <img src={post.image} alt={post.title} className="blog-card-image" />
+        <div className="blog-card-overlay">
+          <h3 className="blog-card-title">{post.title}</h3>
+          <p className="blog-card-summary">{post.summary}</p>
+          <p className="blog-card-meta">{post.author} | {post.date}</p>
+          <button className="blog-card-btn">Read More</button>
+        </div>
+      </div>
+    ))}
+  </Slider>
+</div>
+
   );
 };
 

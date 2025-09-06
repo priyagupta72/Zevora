@@ -163,41 +163,21 @@
   }
 }
 
-
-/* Existing styles remain the same */
-
-/* ===================== */
-/* Blog - Mobile         */
-/* ===================== */
 @media (max-width: 768px) {
-  .blog-slider .slick-slide {
-    transform: none !important;
-    padding: 0 !important;
-  }
-
-  .blog-card {
-    max-width: 100% !important;
-    margin: 0 auto !important;
+  .blog-section {
+    padding: 40px 10px;
   }
 
   .blog-card-image {
-    height: 220px !important; /* adjust as needed */
+    height: 220px; /* smaller image on mobile */
   }
 
+  .blog-slider .slick-slide {
+    padding: 0 5px;
+  }
+
+  /* Always show overlay on mobile (no hover needed) */
   .blog-card-overlay {
     opacity: 1 !important;
-  }
-
-  .blog-card-title {
-    font-size: 1rem !important;
-  }
-
-  .blog-card-summary {
-    font-size: 0.85rem !important;
-    -webkit-line-clamp: 3 !important;
-  }
-
-  .blog-slider .slick-list {
-    padding: 0 !important;
   }
 }
