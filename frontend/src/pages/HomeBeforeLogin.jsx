@@ -360,15 +360,6 @@ const Testimonial = () => {
 // };
 
 
-
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import './Contact.css';
-import mail_icon from '../assets/mail-icon.png';
-import phone_icon from '../assets/phone-icon.png';
-import location_icon from '../assets/location-icon.png';
-
 const Contact = () => {
   const [result, setResult] = React.useState("");
 
