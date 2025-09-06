@@ -110,14 +110,16 @@ const Contact = () => {
 
     const formData = new FormData(event.target);
 
-    // Required Web3Forms key
-    formData.append("access_key", "dc8e1ade-d31a-410f-9d87-ee16c2ddb4db");
-
+    // Use environment variable for access_key
+    const accessKey = process.env.REACT_APP_WEB3FORMS_KEY;
+    console.log("Env Key:", accessKey); 
+    formData.append("access_key", accessKey);
 
     // Extra fields to avoid spam filter
     formData.append("subject", "New Registration from Zevora Website");
     formData.append("from_name", "Zevora Technologies Website");
 
+    // Submit form
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -126,15 +128,15 @@ const Contact = () => {
 
       const data = await response.json();
       if (data.success) {
-        setResult("✅ Registration Submitted Successfully!");
+        setResult("Form Submitted Successfully!");
         event.target.reset();
       } else {
         console.error("Error", data);
-        setResult(data.message || "❌ Submission failed");
+        setResult(data.message || "Submission failed");
       }
     } catch (error) {
       console.error("Error", error);
-      setResult("⚠️ Something went wrong!");
+      setResult("Something went wrong!");
     }
   };
 

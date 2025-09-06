@@ -362,6 +362,13 @@ const Testimonial = () => {
 
 
 
+import React from 'react';
+import { motion } from 'framer-motion';
+import './Contact.css';
+import mail_icon from '../assets/mail-icon.png';
+import phone_icon from '../assets/phone-icon.png';
+import location_icon from '../assets/location-icon.png';
+
 const Contact = () => {
   const [result, setResult] = React.useState("");
 
@@ -370,10 +377,17 @@ const Contact = () => {
     setResult("Submitting...");
 
     const formData = new FormData(event.target);
-   formData.append("access_key", "dc8e1ade-d31a-410f-9d87-ee16c2ddb4db");
 
+    // Use environment variable for access_key
+    const accessKey = process.env.REACT_APP_WEB3FORMS_KEY;
+    console.log("Env Key:", accessKey); // Debug: check if key is loaded
+    if (!accessKey) {
+      setResult("Access key not found. Check .env file!");
+      return;
+    }
+    formData.append("access_key", accessKey);
 
-    // ✅ Anti-spam & better email context
+    // Anti-spam & better email context
     formData.append("subject", "New Registration from Zevora Website");
     formData.append("from_name", "Zevora Technologies Website");
 
@@ -384,13 +398,14 @@ const Contact = () => {
       });
       const data = await response.json();
       if (data.success) {
-        setResult("✅ Registration Submitted Successfully");
+        setResult("Form Submitted Successfully");
         event.target.reset();
       } else {
-        setResult(data.message || "❌ Submission failed");
+        setResult(data.message || "Submission failed");
       }
     } catch (error) {
-      setResult("⚠️ Something went wrong!");
+      console.error(error);
+      setResult("Something went wrong!");
     }
   };
 
@@ -433,7 +448,7 @@ const Contact = () => {
           <label>Message</label>
           <textarea name="message" rows="5" placeholder="Any additional details..." />
 
-          {/* ✅ Hidden honeypot field for spam bots */}
+          {/* Hidden honeypot field for spam bots */}
           <input
             type="checkbox"
             name="botcheck"
@@ -449,6 +464,7 @@ const Contact = () => {
     </section>
   );
 };
+
 
 
 export default Home;
