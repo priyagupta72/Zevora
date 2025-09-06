@@ -106,44 +106,51 @@ const Contact = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("Submitting....");
+
+    // Access the environment variable
+    const accessKey = process.env.REACT_APP_WEB3FORMS_KEY;
+
+    // Check if the access key is loaded
+    if (!accessKey) {
+      setResult("❌ Access key not found. Check your environment variable!");
+      console.error("Missing REACT_APP_WEB3FORMS_KEY in production");
+      return;
+    }
+
+    setResult("Submitting...");
 
     const formData = new FormData(event.target);
-
-    // Use environment variable for access_key
-    const accessKey = process.env.REACT_APP_WEB3FORMS_KEY;
-    console.log("Env Key:", accessKey); 
     formData.append("access_key", accessKey);
 
-    // Extra fields to avoid spam filter
+    // Extra fields to improve email context and avoid spam
     formData.append("subject", "New Registration from Zevora Website");
     formData.append("from_name", "Zevora Technologies Website");
 
-    // Submit form
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        body: formData,
       });
 
       const data = await response.json();
+
       if (data.success) {
-        setResult("Form Submitted Successfully!");
+        setResult("✅ Registration Submitted Successfully!");
         event.target.reset();
       } else {
         console.error("Error", data);
-        setResult(data.message || "Submission failed");
+        setResult(data.message || "❌ Submission failed");
       }
     } catch (error) {
       console.error("Error", error);
-      setResult("Something went wrong!");
+      setResult("⚠️ Something went wrong!");
     }
   };
 
   return (
-    <div className="contact">
+    <section id="contact" className="contact">
       {/* Left Column */}
-      <motion.div 
+      <motion.div
         className="contact-col"
         initial={{ opacity: 0, x: -80 }}
         animate={{ opacity: 1, x: 0 }}
@@ -151,18 +158,17 @@ const Contact = () => {
       >
         <div className="bg-circle circle1"></div>
         <div className="bg-circle circle2"></div>
-
-        <h3>Send us a Message <img src="" alt=""/></h3>
+        <h3>Send us a Message</h3>
         <h4>Have questions about our training programs?</h4>
         <ul>
           <li><img src={mail_icon} alt="" /> info@zevoratech.com</li>
           <li><img src={phone_icon} alt="" /> +91-XXXXXXXXXX</li>
-          <li><img src={location_icon} alt="" /> Zevora Technologies, <br /> [City], India</li>
+          <li><img src={location_icon} alt="" /> Zevora Technologies, <br />[City], India</li>
         </ul>
       </motion.div>
 
       {/* Right Column */}
-      <motion.div 
+      <motion.div
         className="contact-col"
         initial={{ opacity: 0, x: 80 }}
         animate={{ opacity: 1, x: 0 }}
@@ -182,21 +188,20 @@ const Contact = () => {
           <label>Message</label>
           <textarea name="message" rows="5" placeholder="Any additional details..." />
 
-          {/* Honeypot field (spam protection) */}
-          <input 
-            type="checkbox" 
-            name="botcheck" 
-            className="hidden" 
-            style={{ display: "none" }} 
-            tabIndex="-1" 
-            autoComplete="off" 
+          {/* Hidden honeypot field for spam bots */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            style={{ display: "none" }}
+            tabIndex="-1"
+            autoComplete="off"
           />
 
           <button type="submit" className="btn dark-btn">Submit Registration</button>
         </form>
         <span>{result}</span>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

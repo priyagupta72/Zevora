@@ -365,20 +365,23 @@ const Contact = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+
+    // Access the environment variable
+    const accessKey = process.env.REACT_APP_WEB3FORMS_KEY;
+
+    // Check if the access key is loaded
+    if (!accessKey) {
+      setResult("❌ Access key not found. Check your environment variable!");
+      console.error("Missing REACT_APP_WEB3FORMS_KEY in production");
+      return;
+    }
+
     setResult("Submitting...");
 
     const formData = new FormData(event.target);
-
-    // Use environment variable for access_key
-    const accessKey = process.env.REACT_APP_WEB3FORMS_KEY;
-    console.log("Env Key:", accessKey); // Debug: check if key is loaded
-    if (!accessKey) {
-      setResult("Access key not found. Check .env file!");
-      return;
-    }
     formData.append("access_key", accessKey);
 
-    // Anti-spam & better email context
+    // Extra fields to improve email context and avoid spam
     formData.append("subject", "New Registration from Zevora Website");
     formData.append("from_name", "Zevora Technologies Website");
 
@@ -387,21 +390,25 @@ const Contact = () => {
         method: "POST",
         body: formData,
       });
+
       const data = await response.json();
+
       if (data.success) {
-        setResult("Form Submitted Successfully");
+        setResult("✅ Registration Submitted Successfully!");
         event.target.reset();
       } else {
-        setResult(data.message || "Submission failed");
+        console.error("Error", data);
+        setResult(data.message || "❌ Submission failed");
       }
     } catch (error) {
-      console.error(error);
-      setResult("Something went wrong!");
+      console.error("Error", error);
+      setResult("⚠️ Something went wrong!");
     }
   };
 
   return (
     <section id="contact" className="contact">
+      {/* Left Column */}
       <motion.div
         className="contact-col"
         initial={{ opacity: 0, x: -80 }}
@@ -419,6 +426,7 @@ const Contact = () => {
         </ul>
       </motion.div>
 
+      {/* Right Column */}
       <motion.div
         className="contact-col"
         initial={{ opacity: 0, x: 80 }}
@@ -455,7 +463,5 @@ const Contact = () => {
     </section>
   );
 };
-
-
 
 export default Home;
